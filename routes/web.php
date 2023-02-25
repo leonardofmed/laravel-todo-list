@@ -18,3 +18,5 @@ Route::get('/', [TodoListController::class, 'index']);
 
 // When the route "saveItemRoute" is hit, we will call the controller "TodoListController" and call the method "saveItem"
 Route::post('/saveItemRoute', [TodoListController::class, 'saveItem'])->name('saveItem');
+
+Route::post('/markCompleteRoute/{id}', [TodoListController::class, 'markComplete'])->name('markComplete');
