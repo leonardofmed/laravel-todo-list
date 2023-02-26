@@ -10,9 +10,17 @@ use App\Models\ListItem;
 
 class TodoListTest extends TestCase
 {
+    // The RefreshDatabase trait rolls back all database transactions at the end of each test, which means that any data inserted/updated will be erased.
+    // The purpose of this trait is to provide a clean slate for each test, so that the tests are not dependent on the state of the database from previous tests.
     use RefreshDatabase;
 
-    public function test_todo_list_functionality() {
+    public function test_todo_list_functionality()
+    {
+        if (config('app.env') !== 'testing') {
+            echo "This test method should only be run in the testing environment!";
+            return;
+        }
+    
         // Create a new list item by sending a POST request to the saveItem route with a listItem parameter
         $response = $this->post(route('saveItem'), ['listItem' => 'Test Item']);
 

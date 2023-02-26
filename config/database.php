@@ -100,7 +100,7 @@ return [
             'password' => env('DB_TEST_PASSWORD'),
             'prefix' => '',
             'strict' => false,
-            'engine' => null,
+            'engine' => null
         ],
 
     ],
