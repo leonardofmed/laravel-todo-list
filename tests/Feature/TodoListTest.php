@@ -12,6 +12,7 @@ class TodoListTest extends TestCase
 {
     // The RefreshDatabase trait rolls back all database transactions at the end of each test, which means that any data inserted/updated will be erased.
     // The purpose of this trait is to provide a clean slate for each test, so that the tests are not dependent on the state of the database from previous tests.
+    // ! WARNING: This trait should not be used in production environments. All DB data will be erased !
     use RefreshDatabase;
 
     public function test_todo_list_functionality()
